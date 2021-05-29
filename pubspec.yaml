@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flame: ^0.25.0
+  flame: ^0.29.3
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +19,15 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/man.jpg
+    - assets/images/girl/1.png
+    - assets/images/girl/2.png
+    - assets/images/girl/3.png
+    - assets/images/girl/4.png
+    - assets/images/girl/5.png
+    - assets/images/girl/6.png
+    - assets/images/girl/7.png
+    - assets/images/girl/8.png
+    - assets/images/girl/9.png
+    - assets/images/girl/10.png
+    - assets/images/girl/11.png
+    - assets/images/girl/12.png
