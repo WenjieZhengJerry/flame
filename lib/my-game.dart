@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flame/game.dart';
 import 'package:flame/game/base_game.dart';
+import 'package:flame/images.dart';
 import 'package:flame/sprite.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -11,7 +12,8 @@ class MyGame extends BaseGame {
   // 控制举行是否变色
   bool hasWon = false;
   // 组图的下标
-  int count = 0;
+  int count1 = 0;
+  int count2 = 0;
   // 组图
   List<Sprite> girls = [
     Sprite('girl/1.png'),
@@ -26,6 +28,18 @@ class MyGame extends BaseGame {
     Sprite('girl/10.png'),
     Sprite('girl/11.png'),
     Sprite('girl/12.png'),
+  ];
+  List<Sprite> girls2 = [
+    // Sprite('girl2/1.png'),
+    Sprite('girl2/2.png'),
+    Sprite('girl2/3.png'),
+    Sprite('girl2/4.png'),
+    Sprite('girl2/5.png'),
+    Sprite('girl2/6.png'),
+    Sprite('girl2/7.png'),
+    Sprite('girl2/8.png'),
+    Sprite('girl2/9.png'),
+    Sprite('girl2/10.png'),
   ];
   // 帧
   int frame = 0;
@@ -56,10 +70,10 @@ class MyGame extends BaseGame {
     // }
     // canvas.drawRect(boxRect, boxPaint);
 
-    ///通过canvas在屏幕指定位置渲染3个图
-    canvas.drawImage(girls[count % 12].image, Offset(0, 0), Paint());
-    canvas.drawImage(girls[count % 12].image, Offset((screenSize.width / 2) - 60, (screenSize.height / 2) - 100), Paint());
-    canvas.drawImage(girls[count % 12].image, Offset(screenSize.width - 120, screenSize.height - 200), Paint());
+    ///通过canvas在屏幕指定位置渲染
+    canvas.drawImage(girls[count1 % 12].image, Offset(0, 0), Paint());
+    // canvas.drawImage(girls2[count2 % 9].image, Offset(120, 0), Paint());
+
   }
 
   ///用于监听用户是否触碰到正方形得区域
@@ -80,9 +94,13 @@ class MyGame extends BaseGame {
 
     // 每5帧，图片下标+1
     if (frame % 5 == 0) {
-      count++;
+      count1++;
     }
-    frame++;
+    if (frame % 7 == 0) {
+      count2++;
+    }
+
+    frame == 60 ? frame = 0 : frame++;
   }
 
   void resize(Size size) {

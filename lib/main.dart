@@ -25,79 +25,87 @@ void main() async {
     'girl/9.png',
     'girl/10.png',
     'girl/11.png',
-    'girl/12.png'
+    'girl/12.png',
+    // 'girl2/1.png',
+    'girl2/2.png',
+    'girl2/3.png',
+    'girl2/4.png',
+    'girl2/5.png',
+    'girl2/6.png',
+    'girl2/7.png',
+    'girl2/8.png',
+    'girl2/9.png',
+    'girl2/10.png',
   ]);
 
-  MyGame myGame = MyGame();
-  ///下面三行是监听用户手势并绑定事件
-  TapGestureRecognizer tapper = TapGestureRecognizer();
-  tapper.onTapDown = myGame.onTapDown;
-  flameUtil.addGestureRecognizer(tapper);
 
-  runApp(myGame.widget);
+  runApp(MyApp());
 }
 
 ///到时研究一下怎么把动画嵌入到wight中
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: MyHomePage(title: 'Flutter Demo Home Page'),
-//     );
-//   }
-// }
-//
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key, this.title}) : super(key: key);
-//
-//   final String title;
-//
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   MyGame myGame = MyGame();
-//   int _counter = 0;
-//
-//   void _incrementCounter() {
-//     setState(() {
-//       _counter++;
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             Container(
-//               height: 200,
-//               width: 200,
-//               color: Colors.blue,
-//               child: myGame.widget
-//             ),
-//             Text(
-//               '$_counter',
-//               style: Theme.of(context).textTheme.headline4,
-//             ),
-//           ],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: Icon(Icons.add),
-//       ),
-//     );
-//   }
-// }
+class MyApp extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    // Util flameUtil = Util();
+    // MyGame myGame = MyGame();
+    ///下面三行是监听用户手势并绑定事件
+    // TapGestureRecognizer tapper = TapGestureRecognizer();
+    // tapper.onTapDown = myGame.onTapDown;
+    // flameUtil.addGestureRecognizer(tapper);
+    // return myGame.widget;
+
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: '普通gif和Flame动画的对比'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  MyGame myGame = MyGame();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Container(
+        color: Color(0xfffbf8e7),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('普通gif'),
+              Container(
+                  width: 200,
+                  height: 200,
+                  child: Image.network('https://5b0988e595225.cdn.sohucs.com/q_mini,c_zoom,w_640/images/20171007/f1cfa788964748a6b932b75c68954f26.gif')
+              ),
+              Text('Flame引擎做的动画'),
+              Container(
+                width: 120,
+                height: 200,
+                color: Color(0xfffbf8e7),
+                child: myGame.widget,
+              ),
+            ],
+          ),
+        ),
+      )
+    );
+  }
+}
