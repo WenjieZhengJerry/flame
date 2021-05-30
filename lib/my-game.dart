@@ -47,10 +47,10 @@ class MyGame extends BaseGame {
   void render(Canvas canvas) {
     super.render(canvas);
     ///下面这段是给整个屏幕铺一层背景色
-    Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
-    Paint bgPaint = Paint();
-    bgPaint.color = Color(0xfffbf8e7);
-    canvas.drawRect(bgRect, bgPaint);
+    // Rect bgRect = Rect.fromLTWH(0, 0, screenSize.width, screenSize.height);
+    // Paint bgPaint = Paint();
+    // bgPaint.color = Color(0xfffbf8e7);
+    // canvas.drawRect(bgRect, bgPaint);
 
     ///下面这段注释得是在屏幕中央画一个白色得正方形
     // double screenCenterX = screenSize.width / 2;

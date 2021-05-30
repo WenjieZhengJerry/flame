@@ -1,5 +1,6 @@
 import 'package:flame/flame.dart';
 import 'package:flame/util.dart';
+import 'package:flame_demo/bear.dart';
 import 'package:flame_demo/my-game.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,9 @@ import 'package:flutter/services.dart';
 void main() async {
   ///这四行是干嘛的不大清楚，锁定屏幕和全屏化
   WidgetsFlutterBinding.ensureInitialized();
-  Util flameUtil = Util();
-  await flameUtil.fullScreen();
-  await flameUtil.setOrientation(DeviceOrientation.portraitUp);
+  // Util flameUtil = Util();
+  // await flameUtil.fullScreen();
+  // await flameUtil.setOrientation(DeviceOrientation.portraitUp);
   ///导入图片
   Flame.images.loadAll(<String>[
     'man.jpg',
@@ -76,6 +77,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   MyGame myGame = MyGame();
+  BearGame bearGame = BearGame();
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +104,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Color(0xfffbf8e7),
                 child: myGame.widget,
               ),
+              Text('小熊'),
+              Container(
+                width: 100,
+                height: 100,
+                child: bearGame.widget,
+              )
             ],
           ),
         ),
